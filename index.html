@@ -202,6 +202,45 @@
   .sign p { margin: 0; color: var(--muted); }
   .sign .hand { font-family: var(--hand); font-size: 40px; color: var(--accent); line-height: 1.2; margin-top: 6px; }
 
+  /* Consent banner: opt-in only, nothing is sent without "Yes" */
+  .consent {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 20;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    padding-top: 16px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    display: flex;
+    justify-content: center;
+    pointer-events: none;
+  }
+  .consent-card {
+    pointer-events: auto;
+    max-width: 560px;
+    width: 100%;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(194, 74, 124, .16);
+    padding: 20px 22px;
+    display: grid;
+    gap: 12px;
+  }
+  .consent-card h4 { margin: 0; font-family: var(--display); font-weight: 500; font-size: 21px; line-height: 1.25; }
+  .consent-card p { margin: 0; font-size: 15px; line-height: 1.5; color: var(--muted); }
+  .consent-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+  .consent-actions button {
+    font: 500 15px/1 var(--body);
+    border-radius: 999px;
+    padding: 11px 18px;
+    cursor: pointer;
+    border: 1px solid var(--accent);
+  }
+  .consent-yes { background: var(--accent); color: var(--paper); }
+  .consent-no { background: transparent; color: var(--accent); }
+  .consent-actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
   @media (max-width: 760px) {
     .sec { grid-template-columns: minmax(0, 1fr); gap: 20px; }
     .margin { position: static; grid-template-columns: 52px minmax(0, 1fr); align-items: center; column-gap: 14px; row-gap: 0; }
@@ -330,7 +369,7 @@
         <p>I'm giving you all the space you want, for as long as you want it. I won't call, turn up, or reach out through friends. If one day you decide you'd like to talk, I'll be here and I'll still be waiting. That waiting is my choice and mine to carry. It isn't a weight on you, and you never have to come back to it.</p>
         <p>You don't owe me forgiveness, a reply, or a conversation. This letter isn't asking you for anything.</p>
         <p>Whatever you decide, now or later, I'll accept it with care, because how you feel matters more to me than how this ends for me.</p>
-        <p class="quiet">This page is private. It has no trackers and no forms, and nothing you do here is sent to me or anyone else.</p>
+        <p class="quiet">This page has no trackers. Nothing you do here is sent to me unless you choose to let me know you've opened it, and even then I only get that one message.</p>
       </div>
     </section>
 
@@ -351,6 +390,17 @@
     <p class="hand">Always yours</p>
   </div>
 </footer>
+
+<div class="consent" id="consent" role="dialog" aria-labelledby="consent-title" aria-describedby="consent-text" hidden>
+  <div class="consent-card">
+    <h4 id="consent-title">Would you like me to know you've opened this?</h4>
+    <p id="consent-text">Only if you want me to. If you choose "Yes," I get one notification saying you opened the letter. Nothing else is recorded. If you choose "No" or ignore this, nothing is sent.</p>
+    <div class="consent-actions">
+      <button type="button" class="consent-yes" id="consent-yes">Yes, you can know</button>
+      <button type="button" class="consent-no" id="consent-no">No, thank you</button>
+    </div>
+  </div>
+</div>
 
 <script>
 (function () {
@@ -692,6 +742,46 @@
   }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { scenes.forEach(function (s) { s.resize(); }); });
   kick();
+})();
+
+// Opt-in "I opened it" notice. Only runs on the shared GitHub Pages copy, and sends nothing unless she taps Yes.
+(function () {
+  "use strict";
+  var TOPIC_URL = "https://ntfy.sh/letter-7dc392ce7e4a74736583a1bc";
+  var KEY = "letter-consent";
+  var box = document.getElementById("consent");
+  if (!/github\.io$/.test(location.hostname)) return;
+  var answered = null;
+  try { answered = localStorage.getItem(KEY); } catch (e) {}
+  if (answered) return;
+  box.hidden = false;
+  var card = box.querySelector(".consent-card");
+  function remember(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  function finish(msg) {
+    card.innerHTML = "";
+    var p = document.createElement("p");
+    p.textContent = msg;
+    card.appendChild(p);
+    setTimeout(function () { box.hidden = true; }, 3200);
+  }
+  document.getElementById("consent-no").addEventListener("click", function () {
+    remember("no");
+    finish("Okay. Nothing was sent.");
+  });
+  document.getElementById("consent-yes").addEventListener("click", function () {
+    this.disabled = true;
+    fetch(TOPIC_URL, {
+      method: "POST",
+      headers: { "Title": "Your letter was opened" },
+      body: "Sarah chose to let you know she opened the letter."
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      remember("yes");
+      finish("Thank you. All I'll see is that you opened it.");
+    }).catch(function () {
+      finish("That didn't go through, so nothing was sent. You can close this page or try again later.");
+    });
+  });
 })();
 </script>
 </body>
