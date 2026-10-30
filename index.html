@@ -15,8 +15,8 @@
     color-scheme: light;
     --bg: #FFF5F8;
     --paper: #FFFBFC;
-    --ink: #3F2A36;
-    --muted: #84697A;
+    --ink: #33212C;
+    --muted: #6E5468;
     --line: #F7DDE6;
     --accent: #C24A7C;
     --accent-soft: #FDE7EF;
@@ -45,9 +45,11 @@
     background: var(--bg);
     color: var(--ink);
     font-family: var(--body);
-    font-size: 19px;
-    line-height: 1.65;
+    font-size: 21px;
+    line-height: 1.75;
+    font-weight: 420;
     font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -87,9 +89,9 @@
   }
   h1 .name { display: block; font-style: normal; font-size: .32em; letter-spacing: .01em; color: var(--accent); margin-bottom: .25em; }
   .lede {
-    max-width: 34ch;
-    font-size: clamp(20px, 2.4vw, 24px);
-    line-height: 1.5;
+    max-width: 36ch;
+    font-size: clamp(21px, 2.4vw, 25px);
+    line-height: 1.6;
     margin: 28px 0 0;
     color: var(--ink);
   }
@@ -119,7 +121,8 @@
   .sprig { width: 72px; height: 120px; display: block; }
   .flower-name { font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.2; }
   .meaning { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
-  .body { min-width: 0; max-width: 62ch; }
+  .body { min-width: 0; max-width: 60ch; }
+  .body p { letter-spacing: .003em; }
   h2 {
     font-family: var(--display);
     font-weight: 400;
@@ -130,7 +133,7 @@
     text-wrap: balance;
   }
   h2 em { color: var(--accent); }
-  p { margin: 0 0 1.1em; }
+  p { margin: 0 0 1.3em; }
   p:last-child { margin-bottom: 0; }
   .salutation { font-family: var(--hand); font-size: 34px; line-height: 1; color: var(--accent); margin-bottom: 18px; }
 
@@ -151,7 +154,7 @@
   .promise { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--line); }
   .promise:nth-child(even) { padding-left: 24px; padding-right: 0; border-left: 1px solid var(--line); }
   .promise h3 { font-family: var(--display); font-weight: 500; font-size: 22px; line-height: 1.25; margin: 0 0 8px; text-wrap: balance; }
-  .promise p { font-size: 17px; color: var(--muted); margin: 0; }
+  .promise p { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0; }
 
   /* Love */
   .pull {
@@ -172,7 +175,7 @@
     border-radius: 4px;
     padding: clamp(24px, 4vw, 40px);
   }
-  .quiet { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+  .quiet { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 16px; line-height: 1.6; color: var(--muted); }
 
   /* Closing garden */
   .closing {
@@ -209,7 +212,7 @@
     .promises { grid-template-columns: minmax(0, 1fr); }
     .promise, .promise:nth-child(even) { padding: 22px 0; border-left: 0; }
   }
-  @media (max-width: 480px) { body { font-size: 18px; } }
+  @media (max-width: 480px) { body { font-size: 19px; line-height: 1.72; } }
   @media (prefers-reduced-motion: reduce) { .plant { transition: none; } }
 </style>
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
