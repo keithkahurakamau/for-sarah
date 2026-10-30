@@ -1,0 +1,696 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>For Sarah</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=Caveat:wght@500;600&display=swap">
+<style>
+  /* Layout: one letter column with flower-language marginalia on the left, opened and closed by a living garden */
+  :root {
+    color-scheme: light;
+    --bg: #FFF5F8;
+    --paper: #FFFBFC;
+    --ink: #3F2A36;
+    --muted: #84697A;
+    --line: #F7DDE6;
+    --accent: #C24A7C;
+    --accent-soft: #FDE7EF;
+    --glow: rgba(250, 182, 204, .65);
+    --glow2: rgba(255, 207, 222, .60);
+
+    --f-leaf: #7FA373;
+    --f-leaf2: #A8C49A;
+    --f-rose: #EC6F98;
+    --f-blush: #F9B9CF;
+    --f-hyacinth: #A98BD6;
+    --f-bluebell: #8FA8E6;
+    --f-gold: #F2C760;
+    --f-lavender: #C7B6EA;
+    --f-petal: #FFFFFF;
+    --f-edge: rgba(58, 48, 64, .14);
+    --f-forget: #A4C6F0;
+
+    --display: "Bodoni Moda", Didot, "Bodoni 72", Georgia, serif;
+    --body: "Newsreader", Georgia, "Times New Roman", serif;
+    --hand: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 19px;
+    line-height: 1.65;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .wrap {
+    max-width: 980px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    background:
+      radial-gradient(60% 70% at 20% 0%, var(--glow), transparent 70%),
+      radial-gradient(50% 60% at 85% 10%, var(--glow2), transparent 70%),
+      var(--bg);
+  }
+  .hero .wrap { padding-block: clamp(48px, 9vw, 96px) 0; }
+  .eyebrow {
+    font-family: var(--body);
+    font-size: 13px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: clamp(64px, 14vw, 156px);
+    line-height: .92;
+    letter-spacing: -.02em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 .name { display: block; font-style: normal; font-size: .32em; letter-spacing: .01em; color: var(--accent); margin-bottom: .25em; }
+  .lede {
+    max-width: 34ch;
+    font-size: clamp(20px, 2.4vw, 24px);
+    line-height: 1.5;
+    margin: 28px 0 0;
+    color: var(--ink);
+  }
+  .garden {
+    display: block;
+    width: 100%;
+    height: clamp(240px, 40vw, 400px);
+    margin-top: 8px;
+  }
+  .ground { height: 1px; background: var(--line); }
+
+  /* ---------- Letter sections ---------- */
+  main .wrap { padding-block: clamp(40px, 7vw, 80px); display: grid; gap: clamp(64px, 10vw, 112px); }
+  .sec {
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+  .margin {
+    position: sticky;
+    top: calc(env(safe-area-inset-top, 0px) + 32px);
+    display: grid;
+    gap: 6px;
+    justify-items: start;
+  }
+  .sprig { width: 72px; height: 120px; display: block; }
+  .flower-name { font-family: var(--display); font-style: italic; font-size: 20px; line-height: 1.2; }
+  .meaning { font-size: 12px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+  .body { min-width: 0; max-width: 62ch; }
+  h2 {
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(36px, 5.4vw, 54px);
+    line-height: 1.05;
+    letter-spacing: -.01em;
+    margin: 0 0 24px;
+    text-wrap: balance;
+  }
+  h2 em { color: var(--accent); }
+  p { margin: 0 0 1.1em; }
+  p:last-child { margin-bottom: 0; }
+  .salutation { font-family: var(--hand); font-size: 34px; line-height: 1; color: var(--accent); margin-bottom: 18px; }
+
+  /* Ownership list */
+  .owns { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 22px; }
+  .owns li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 14px; }
+  .owns li::before {
+    content: "";
+    width: 10px; height: 10px; margin-top: .62em;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(-45deg);
+    background: var(--f-bluebell);
+  }
+  .owns strong { font-weight: 600; }
+
+  /* Commitments */
+  .promises { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 32px; border-top: 1px solid var(--line); }
+  .promise { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--line); }
+  .promise:nth-child(even) { padding-left: 24px; padding-right: 0; border-left: 1px solid var(--line); }
+  .promise h3 { font-family: var(--display); font-weight: 500; font-size: 22px; line-height: 1.25; margin: 0 0 8px; text-wrap: balance; }
+  .promise p { font-size: 17px; color: var(--muted); margin: 0; }
+
+  /* Love */
+  .pull {
+    font-family: var(--display);
+    font-style: italic;
+    font-size: clamp(26px, 3.6vw, 36px);
+    line-height: 1.3;
+    margin: 36px 0;
+    padding: 0 0 0 24px;
+    border-left: 2px solid var(--f-rose);
+    text-wrap: balance;
+  }
+
+  /* Her space */
+  .space {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: clamp(24px, 4vw, 40px);
+  }
+  .quiet { margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--muted); }
+
+  /* Closing garden */
+  .closing {
+    background:
+      radial-gradient(70% 80% at 50% 100%, var(--glow), transparent 70%),
+      var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  .closing .wrap { padding-block: clamp(56px, 8vw, 96px) 0; text-align: center; }
+  .closing h2 { margin-bottom: 12px; }
+  .closing .hint { color: var(--muted); max-width: 46ch; margin: 0 auto 20px; font-size: 17px; }
+  .plant {
+    font: 500 16px/1 var(--body);
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    padding: 12px 22px;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .plant:hover { background: var(--accent); color: var(--bg); }
+  .plant:focus-visible, canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .count { display: block; margin-top: 12px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-variant-numeric: tabular-nums; }
+  #garden2 { cursor: pointer; height: clamp(220px, 34vw, 340px); }
+  .sign { padding-block: 40px clamp(48px, 8vw, 80px); text-align: center; }
+  .sign p { margin: 0; color: var(--muted); }
+  .sign .hand { font-family: var(--hand); font-size: 40px; color: var(--accent); line-height: 1.2; margin-top: 6px; }
+
+  @media (max-width: 760px) {
+    .sec { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .margin { position: static; grid-template-columns: 52px minmax(0, 1fr); align-items: center; column-gap: 14px; row-gap: 0; }
+    .sprig { width: 52px; height: 86px; grid-row: span 2; }
+    .promises { grid-template-columns: minmax(0, 1fr); }
+    .promise, .promise:nth-child(even) { padding: 22px 0; border-left: 0; }
+  }
+  @media (max-width: 480px) { body { font-size: 18px; } }
+  @media (prefers-reduced-motion: reduce) { .plant { transition: none; } }
+</style>
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)} body{margin:0} img{max-width:100%} [hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">A letter, with flowers</p>
+    <h1><span class="name">Sarah,</span>I'm sorry.</h1>
+    <p class="lede">I hurt you, and you didn't deserve any of it. This is my apology, written slowly and meant completely. Read it whenever you like, or not at all.</p>
+  </div>
+  <canvas class="garden" id="garden1" aria-hidden="true"></canvas>
+  <div class="ground"></div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="sec" aria-labelledby="s1">
+      <aside class="margin">
+        <canvas class="sprig" data-type="hyacinth" aria-hidden="true"></canvas>
+        <div class="flower-name">Purple hyacinth</div>
+        <div class="meaning">I am sorry. Please forgive me.</div>
+      </aside>
+      <div class="body">
+        <div class="salutation">Dear Sarah,</div>
+        <h2 id="s1">What I did <em>hurt you.</em></h2>
+        <!-- Personalise here: name what actually happened, in your own words. Specific is kinder than vague. -->
+        <p>I've thought a long time about how to say this without dressing it up. I hurt you. I did it through things I said, through things I did, and through the times I wasn't there when you needed me to be.</p>
+        <p>I made you feel less loved and less safe than you should ever have felt with me. You carried pain that I caused, and you carried it while I was still making excuses.</p>
+        <p>I'm not going to explain it away. No reason is good enough to make it okay, and you shouldn't have to sit through one.</p>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s2">
+      <aside class="margin">
+        <canvas class="sprig" data-type="bluebell" aria-hidden="true"></canvas>
+        <div class="flower-name">Bluebell</div>
+        <div class="meaning">Humility and constancy</div>
+      </aside>
+      <div class="body">
+        <h2 id="s2">This is <em>mine</em> to own.</h2>
+        <p>Full accountability means saying the whole thing plainly, so here it is.</p>
+        <ul class="owns">
+          <li><span><strong>It was my choice.</strong> Nobody made me act the way I did, and none of it was your fault.</span></li>
+          <li><span><strong>Your hurt is real.</strong> I won't tell you it was smaller than it felt, or that you should be over it by now.</span></li>
+          <li><span><strong>I should have listened sooner.</strong> You tried to tell me, and I didn't stop long enough to hear you.</span></li>
+          <li><span><strong>Sorry doesn't fix it.</strong> Changing does. That's on me to show, and not on you to believe until you see it.</span></li>
+          <li><span><strong>No "if," no "but."</strong> I'm sorry I hurt you. Full stop.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s3">
+      <aside class="margin">
+        <canvas class="sprig" data-type="ivy" aria-hidden="true"></canvas>
+        <div class="flower-name">Ivy</div>
+        <div class="meaning">Fidelity. A promise that holds on.</div>
+      </aside>
+      <div class="body">
+        <h2 id="s3">What I'm <em>changing.</em></h2>
+        <p>These aren't words to get you back. They're the standard I'm holding myself to, and you're free to measure me against every one of them.</p>
+        <div class="promises">
+          <div class="promise">
+            <h3>I'll listen to understand</h3>
+            <p>When you tell me something hurts, I'll stop defending myself and actually hear you.</p>
+          </div>
+          <div class="promise">
+            <h3>I'll be honest, even when it's hard</h3>
+            <p>No half-truths to avoid an argument. You'll always know where you stand with me.</p>
+          </div>
+          <div class="promise">
+            <h3>I'll let my actions speak</h3>
+            <p>Promises are easy. I'll show you, consistently and over time, without asking for credit.</p>
+          </div>
+          <div class="promise">
+            <h3>I'll do the work on myself</h3>
+            <p>The patterns that hurt you are mine to fix, and I'm fixing them whether or not you're there to see it.</p>
+          </div>
+          <div class="promise">
+            <h3>I'll respect your boundaries</h3>
+            <p>Whatever space or time you need, I'll give it without pressure, guilt, or keeping score.</p>
+          </div>
+          <div class="promise">
+            <h3>I'll own it when I slip</h3>
+            <p>I won't be perfect. When I get something wrong, I'll name it straight away instead of hiding it.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s4">
+      <aside class="margin">
+        <canvas class="sprig" data-type="rose" aria-hidden="true"></canvas>
+        <div class="flower-name">Red rose</div>
+        <div class="meaning">Love, plainly said</div>
+      </aside>
+      <div class="body">
+        <h2 id="s4">What <em>hasn't</em> changed.</h2>
+        <p>I love you. I'm not saying it to soften this apology, and it doesn't put you in my debt. I just want you to know it, clearly and without conditions.</p>
+        <!-- Personalise here: add the small, true things you love about her. Those are the lines she'll remember. -->
+        <p>I love how deeply you care for the people around you. I love your honesty, your laugh, and the way you light up when you talk about the things that matter to you. I love who you are on your hard days too, not only your easy ones.</p>
+        <blockquote class="pull">You deserved patience, honesty and gentleness from me every single day. That is what I owe you, and what I'm working to give.</blockquote>
+        <p>You have made my life better simply by being in it. I'm sorry I made yours harder.</p>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s5">
+      <aside class="margin">
+        <canvas class="sprig" data-type="lavender" aria-hidden="true"></canvas>
+        <div class="flower-name">Lavender</div>
+        <div class="meaning">Calm, and devotion that waits</div>
+      </aside>
+      <div class="body space">
+        <h2 id="s5">Your pace. <em>Your choice.</em></h2>
+        <p>You don't owe me forgiveness, a reply, or a conversation. This letter isn't asking you for anything.</p>
+        <p>If you want to talk, I'm here and I'll listen. If you need space, I'll respect it completely. Whatever you decide, I'll accept it with care, because how you feel matters more to me than how this ends for me.</p>
+        <p class="quiet">This page is private. It has no trackers and no forms, and nothing you do here is sent to me or anyone else.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="closing">
+  <div class="wrap">
+    <h2>A garden that <em>keeps growing</em></h2>
+    <p class="hint">Tap anywhere in the garden to plant a flower. Each one stands for a day I'll spend proving these words true.</p>
+    <button class="plant" id="plant" type="button">Plant a flower</button>
+    <span class="count" id="count" aria-live="polite">Forget-me-nots for now</span>
+  </div>
+  <canvas class="garden" id="garden2" tabindex="0" aria-label="A garden. Click or press Enter to plant a flower."></canvas>
+  <div class="ground"></div>
+  <div class="wrap sign">
+    <p>With all my love, and every intention of doing better,</p>
+    <p class="hand">Always yours</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var C = {};
+  var KEYS = ["leaf", "leaf2", "rose", "blush", "hyacinth", "bluebell", "gold", "lavender", "petal", "edge", "forget"];
+  function readColors() {
+    var s = getComputedStyle(document.documentElement);
+    KEYS.forEach(function (k) { C[k] = s.getPropertyValue("--f-" + k).trim(); });
+  }
+  readColors();
+
+  function rnd(a, b) { return a + Math.random() * (b - a); }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  function clamp01(t) { return t < 0 ? 0 : t > 1 ? 1 : t; }
+
+  /* ---------- Flower heads, drawn in local space (up is -y) ---------- */
+  function petalPath(ctx, w, h) {
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.bezierCurveTo(w, -h * 0.1, w * 0.9, -h * 0.8, 0, -h);
+    ctx.bezierCurveTo(-w * 0.9, -h * 0.8, -w, -h * 0.1, 0, 0);
+  }
+  function leafPath(ctx, len, w) {
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(len * 0.5, -w, len, 0);
+    ctx.quadraticCurveTo(len * 0.5, w, 0, 0);
+  }
+  function star(ctx, x, y, r, n, color, center) {
+    ctx.fillStyle = color;
+    for (var i = 0; i < n; i++) {
+      var a = (i / n) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.ellipse(x + Math.cos(a) * r * 0.55, y + Math.sin(a) * r * 0.55, r * 0.5, r * 0.36, a, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    if (center) { ctx.fillStyle = center; ctx.beginPath(); ctx.arc(x, y, r * 0.28, 0, Math.PI * 2); ctx.fill(); }
+  }
+
+  var heads = {
+    daisy: function (ctx, r, b, f) {
+      var n = 14;
+      ctx.lineWidth = 0.8;
+      ctx.strokeStyle = C.edge;
+      for (var i = 0; i < n; i++) {
+        ctx.save();
+        ctx.rotate((i / n) * Math.PI * 2 + f.phase);
+        ctx.beginPath();
+        ctx.ellipse(0, -r * 0.55 * b, r * 0.15, r * 0.5 * b, 0, 0, Math.PI * 2);
+        ctx.fillStyle = f.alt ? C.blush : C.petal;
+        ctx.fill();
+        ctx.stroke();
+        ctx.restore();
+      }
+      ctx.fillStyle = C.gold;
+      ctx.beginPath(); ctx.arc(0, 0, r * 0.24, 0, Math.PI * 2); ctx.fill();
+    },
+    tulip: function (ctx, r, b, f) {
+      var c = f.alt ? C.blush : C.rose;
+      ctx.fillStyle = c;
+      petalPath(ctx, r * 0.55, r * 1.3 * b); ctx.fill();
+      ctx.save(); ctx.rotate(-0.32); petalPath(ctx, r * 0.5, r * 1.2 * b); ctx.fill();
+      ctx.fillStyle = "rgba(0,0,0,.10)"; ctx.fill(); ctx.restore();
+      ctx.save(); ctx.rotate(0.32); ctx.fillStyle = c; petalPath(ctx, r * 0.5, r * 1.2 * b); ctx.fill();
+      ctx.fillStyle = "rgba(255,255,255,.12)"; ctx.fill(); ctx.restore();
+    },
+    rose: function (ctx, r, b, f) {
+      ctx.save();
+      ctx.translate(0, -r * 0.45);
+      ctx.scale(b, b);
+      ctx.fillStyle = C.rose;
+      for (var i = 0; i < 6; i++) {
+        var a = (i / 6) * Math.PI * 2 + f.phase;
+        ctx.beginPath(); ctx.arc(Math.cos(a) * r * 0.32, Math.sin(a) * r * 0.32, r * 0.42, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = "rgba(0,0,0,.14)";
+      ctx.beginPath(); ctx.arc(0, 0, r * 0.5, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = C.rose;
+      ctx.beginPath(); ctx.arc(0, 0, r * 0.42, 0, Math.PI * 2); ctx.fill();
+      ctx.strokeStyle = "rgba(0,0,0,.28)";
+      ctx.lineWidth = Math.max(1, r * 0.06);
+      ctx.lineCap = "round";
+      ctx.beginPath();
+      for (var t = 0; t < Math.PI * 4.2; t += 0.15) {
+        var rad = r * 0.04 + t * r * 0.028;
+        var x = Math.cos(t + f.phase) * rad, y = Math.sin(t + f.phase) * rad;
+        t === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    },
+    hyacinth: function (ctx, r, b) {
+      var rows = 11, shown = Math.ceil(rows * b);
+      for (var j = 0; j < shown; j++) {
+        var y = -j * r * 0.21 - r * 0.15;
+        var w = r * 0.5 * (1 - j / (rows + 2));
+        var off = j % 2 ? 0.5 : 0;
+        for (var k = -1; k <= 1; k++) {
+          star(ctx, (k + off * 0.6) * w, y, r * 0.19, 6, C.hyacinth, C.lavender);
+        }
+      }
+    },
+    lavender: function (ctx, r, b) {
+      var n = Math.ceil(14 * b);
+      ctx.fillStyle = C.lavender;
+      for (var j = 0; j < n; j++) {
+        var y = -j * r * 0.16;
+        var w = r * 0.13 * (1 - j / 18);
+        ctx.beginPath(); ctx.ellipse(-w, y, r * 0.09, r * 0.12, -0.4, 0, Math.PI * 2); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(w, y - r * 0.06, r * 0.09, r * 0.12, 0.4, 0, Math.PI * 2); ctx.fill();
+      }
+    },
+    bluebell: function (ctx, r, b) {
+      ctx.strokeStyle = C.leaf; ctx.lineWidth = Math.max(1, r * 0.08); ctx.lineCap = "round";
+      ctx.beginPath(); ctx.moveTo(0, 0); ctx.quadraticCurveTo(r * 0.3, -r * 0.5, r * 1.1, -r * 0.2); ctx.stroke();
+      var spots = [[r * 0.25, -r * 0.3], [r * 0.6, -r * 0.33], [r * 0.95, -r * 0.24]];
+      var n = Math.ceil(spots.length * b);
+      ctx.fillStyle = C.bluebell;
+      for (var i = 0; i < n; i++) {
+        var x = spots[i][0], y = spots[i][1], s = r * 0.26;
+        ctx.save(); ctx.translate(x, y); ctx.rotate(0.15);
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(s, 0, s * 0.9, s * 1.2, s * 1.25, s * 1.75);
+        ctx.quadraticCurveTo(s * 0.6, s * 1.45, 0, s * 1.75);
+        ctx.quadraticCurveTo(-s * 0.6, s * 1.45, -s * 1.25, s * 1.75);
+        ctx.bezierCurveTo(-s * 0.9, s * 1.2, -s, 0, 0, 0);
+        ctx.fill();
+        ctx.restore();
+      }
+    },
+    forget: function (ctx, r, b) {
+      var pts = [[0, -r * 0.2], [-r * 0.45, r * 0.05], [r * 0.45, 0], [-r * 0.2, -r * 0.6], [r * 0.25, -r * 0.55]];
+      for (var i = 0; i < pts.length; i++) star(ctx, pts[i][0] * b, pts[i][1] * b, r * 0.3 * b, 5, C.forget, C.gold);
+    },
+    ivy: function (ctx, r, b) {
+      var a = [-1.1, -0.35, 0.4, 1.15];
+      for (var i = 0; i < a.length; i++) {
+        ctx.save(); ctx.rotate(a[i] - Math.PI / 2);
+        ctx.fillStyle = i % 2 ? C.leaf : C.leaf2;
+        ctx.beginPath();
+        var L = r * (0.9 + (i % 2) * 0.2) * b;
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(L * 0.3, -L * 0.55, L * 0.75, -L * 0.45, L, 0);
+        ctx.bezierCurveTo(L * 0.75, L * 0.45, L * 0.3, L * 0.55, 0, 0);
+        ctx.fill();
+        ctx.strokeStyle = "rgba(255,255,255,.25)"; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(L * 0.85, 0); ctx.stroke();
+        ctx.restore();
+      }
+    }
+  };
+
+  /* ---------- One flower: stem grows, leaves unfurl, head blooms, then it sways ---------- */
+  function drawFlower(ctx, f, W, H, now) {
+    var age = reduced ? 1 : clamp01((now - f.born) / f.dur);
+    if (age <= 0) return;
+    var sg = ease(clamp01(age / 0.6));
+    var bg = ease(clamp01((age - 0.45) / 0.55));
+    var x0 = f.xf * W, y0 = H + 2, h = f.hf * H, s = f.s * Math.min(1.25, Math.max(0.7, W / 900));
+    var sway = reduced ? 0 : Math.sin(now / 1000 * f.speed + f.phase) * f.swayAmt;
+    var tx = x0 + f.lean * h + sway * h, ty = y0 - h;
+    var cx = x0 + f.lean * h * 0.2, cy = y0 - h * 0.5;
+    function q(t) {
+      var u = 1 - t;
+      return { x: u * u * x0 + 2 * u * t * cx + t * t * tx, y: u * u * y0 + 2 * u * t * cy + t * t * ty };
+    }
+    ctx.strokeStyle = C.leaf;
+    ctx.lineWidth = Math.max(1.2, s * 2.4);
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    for (var i = 0; i <= 24; i++) {
+      var p = q(sg * i / 24);
+      i ? ctx.lineTo(p.x, p.y) : ctx.moveTo(p.x, p.y);
+    }
+    ctx.stroke();
+
+    for (var k = 0; k < f.leaves.length; k++) {
+      var lf = f.leaves[k];
+      if (sg <= lf.t) continue;
+      var g = ease(clamp01((sg - lf.t) / 0.3));
+      var lp = q(lf.t);
+      ctx.save();
+      ctx.translate(lp.x, lp.y);
+      ctx.rotate(lf.side > 0 ? -0.55 + sway : -Math.PI + 0.55 + sway);
+      ctx.fillStyle = lf.light ? C.leaf2 : C.leaf;
+      leafPath(ctx, lf.len * s * g, lf.len * s * 0.32 * g);
+      ctx.fill();
+      ctx.restore();
+    }
+
+    if (bg > 0) {
+      var top = q(1), pre = q(0.96);
+      ctx.save();
+      ctx.translate(top.x, top.y);
+      ctx.rotate(Math.atan2(top.x - pre.x, pre.y - top.y) * 0.8);
+      heads[f.type](ctx, f.r * s, bg, f);
+      ctx.restore();
+    }
+  }
+
+  function makeFlower(o) {
+    var f = {
+      type: o.type,
+      xf: o.xf,
+      hf: o.hf,
+      s: o.s || 1,
+      r: o.r || 22,
+      lean: o.lean != null ? o.lean : rnd(-0.12, 0.12),
+      born: o.born,
+      dur: o.dur || rnd(1800, 2600),
+      phase: rnd(0, Math.PI * 2),
+      speed: rnd(0.6, 1.1),
+      swayAmt: rnd(0.012, 0.03),
+      alt: Math.random() < 0.6,
+      leaves: []
+    };
+    var nl = o.leafCount != null ? o.leafCount : 2;
+    for (var i = 0; i < nl; i++) {
+      f.leaves.push({ t: 0.15 + i * 0.22 + rnd(0, 0.08), side: i % 2 ? 1 : -1, len: rnd(16, 26), light: Math.random() < 0.4 });
+    }
+    return f;
+  }
+
+  /* ---------- Canvas scenes ---------- */
+  var scenes = [];
+  function Scene(canvas, flowers, opts) {
+    this.c = canvas;
+    this.ctx = canvas.getContext("2d");
+    this.flowers = flowers;
+    this.grass = opts && opts.grass;
+    this.blades = [];
+    this.visible = true;
+    this.resize();
+    var self = this;
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (es) { self.visible = es[0].isIntersecting; if (self.visible) kick(); }).observe(canvas);
+    }
+  }
+  Scene.prototype.resize = function () {
+    var r = this.c.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+    this.W = r.width; this.H = r.height;
+    this.c.width = Math.round(r.width * d); this.c.height = Math.round(r.height * d);
+    this.ctx.setTransform(d, 0, 0, d, 0, 0);
+    if (this.grass) {
+      this.blades = [];
+      var n = Math.round(this.W / 7);
+      for (var i = 0; i < n; i++) this.blades.push({ x: rnd(0, 1), h: rnd(10, 34), b: rnd(-0.3, 0.3), p: rnd(0, 6), l: Math.random() < 0.5 });
+    }
+  };
+  Scene.prototype.draw = function (now) {
+    var ctx = this.ctx, W = this.W, H = this.H;
+    ctx.clearRect(0, 0, W, H);
+    for (var i = 0; i < this.flowers.length; i++) drawFlower(ctx, this.flowers[i], W, H, now);
+    if (this.grass) {
+      ctx.lineCap = "round";
+      ctx.lineWidth = 1.6;
+      for (var j = 0; j < this.blades.length; j++) {
+        var g = this.blades[j], x = g.x * W, sw = reduced ? 0 : Math.sin(now / 1400 + g.p) * 3;
+        ctx.strokeStyle = g.l ? C.leaf2 : C.leaf;
+        ctx.beginPath(); ctx.moveTo(x, H + 1); ctx.quadraticCurveTo(x + g.b * 8, H - g.h * 0.6, x + g.b * 18 + sw, H - g.h); ctx.stroke();
+      }
+    }
+  };
+
+  var t0 = performance.now();
+  var TYPES = ["daisy", "tulip", "rose", "hyacinth", "lavender", "tulip", "rose", "daisy", "tulip", "rose"];
+
+  // Hero garden: back row first so the front row overlaps it
+  var hero = [];
+  var N = 30;
+  for (var i = 0; i < N; i++) {
+    var back = i < N / 2;
+    hero.push(makeFlower({
+      type: pick(TYPES),
+      xf: (i % (N / 2)) / (N / 2) + rnd(0.0, 0.06),
+      hf: back ? rnd(0.55, 0.88) : rnd(0.28, 0.58),
+      s: back ? rnd(0.8, 0.95) : rnd(1, 1.2),
+      born: t0 + (back ? rnd(0, 900) : rnd(500, 1800)),
+      leafCount: back ? 2 : 3
+    }));
+  }
+  scenes.push(new Scene(document.getElementById("garden1"), hero, { grass: true }));
+
+  // Section sprigs: one flower each, grown on load
+  document.querySelectorAll(".sprig").forEach(function (cv, idx) {
+    var type = cv.getAttribute("data-type");
+    var f = makeFlower({ type: type, xf: 0.42, hf: type === "hyacinth" || type === "lavender" ? 0.48 : 0.7, s: 1, r: type === "rose" ? 19 : type === "bluebell" ? 26 : 17, lean: type === "bluebell" ? -0.08 : 0.04, born: t0 + 400 + idx * 250, leafCount: 2 });
+    f.alt = false;
+    scenes.push(new Scene(cv, [f]));
+  });
+
+  // Closing garden: starts with forget-me-nots, grows with every tap
+  var closing = [];
+  for (var c = 0; c < 9; c++) {
+    closing.push(makeFlower({ type: "forget", xf: 0.08 + c * 0.105 + rnd(-0.02, 0.02), hf: rnd(0.25, 0.45), s: rnd(0.9, 1.1), born: t0 + rnd(0, 1200) }));
+  }
+  var g2 = document.getElementById("garden2");
+  var closingScene = new Scene(g2, closing, { grass: true });
+  scenes.push(closingScene);
+
+  var planted = 0, countEl = document.getElementById("count");
+  function plant(xf, hf) {
+    closing.push(makeFlower({ type: pick(TYPES), xf: xf, hf: hf, s: rnd(0.95, 1.2), born: performance.now(), dur: rnd(1500, 2100), leafCount: 2 }));
+    if (closing.length > 90) closing.splice(9, 1);
+    planted++;
+    countEl.textContent = planted + (planted === 1 ? " flower planted" : " flowers planted");
+    kick();
+  }
+  g2.addEventListener("click", function (e) {
+    var r = g2.getBoundingClientRect();
+    var xf = (e.clientX - r.left) / r.width;
+    var hf = Math.min(0.9, Math.max(0.2, (r.bottom - e.clientY) / r.height));
+    plant(xf, hf);
+  });
+  g2.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); plant(rnd(0.05, 0.95), rnd(0.3, 0.8)); }
+  });
+  document.getElementById("plant").addEventListener("click", function () { plant(rnd(0.05, 0.95), rnd(0.3, 0.8)); });
+
+  var resizeTimer;
+  window.addEventListener("resize", function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () { scenes.forEach(function (s) { s.resize(); }); kick(); }, 120);
+  });
+
+  var running = false;
+  function frame(now) {
+    for (var i = 0; i < scenes.length; i++) if (scenes[i].visible) scenes[i].draw(now);
+    if (reduced) { running = false; return; }
+    requestAnimationFrame(frame);
+  }
+  function kick() {
+    if (reduced) { requestAnimationFrame(frame); return; }
+    if (!running) { running = true; requestAnimationFrame(frame); }
+  }
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { scenes.forEach(function (s) { s.resize(); }); });
+  kick();
+})();
+</script>
+</body>
+</html>
